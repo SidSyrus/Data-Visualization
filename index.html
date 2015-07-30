@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Dundas Data Visualization test</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script src="main.js" type="text/javascript"></script>
+		<link rel="stylesheet" type="text/css" href="main.css">
+	</head>
+	<body>
+		<div class="main">
+			<div class="content">
+				<header>
+					<h3>Test</h3>
+				</header>
+				<section>
+					<div class="section-content">
+						<div class="section-add">
+							<div class="name-value-text">
+								<span>Name/Value Pair</span>
+							</div>
+							<div id="err" style="display:none">
+								<span>Please enter proper value!</spn>
+							</div>
+							<div class="flex-container">
+								<div class="section-add-input">
+									<input type="text" name="name-value" pattern="[a-zA-Z0-9=]+" required id="name-value-input">
+								</div>
+								<div class="section-add-btn">
+									<button id="add-btn" type="submit" value="Add">Add</button>
+								</div>
+							</div>
+						</div>
+						<div class="section-view">
+							<div class="name-value-text">
+								<span>Name/Value Pair List</span>
+							</div>
+							<div class="flex-container">
+								<div class="section-view-list">
+									<select class="name-value-list" size="13" multiple="" name="name-value-list">					
+									</select>
+								</div>
+								<div class="section-view-btns">
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+	</body>
+</html>

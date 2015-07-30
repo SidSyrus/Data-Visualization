@@ -1,0 +1,17 @@
+body{
+	color:#fff;
+	background-color:#222;
+	overflow-x:hidden;
+	overflow-y:hidden;
+}
+select{
+	width:250px;
+}
+.flex-container div{
+	display:inline-flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+}
+select{
+	overflow-y:scroll;
+}
