@@ -7,7 +7,7 @@ body{
 select{
 	width:250px;
 }
-.flex-container div{
+.flex-container{
 	display:inline-flex;
 	flex-direction: row;
 	flex-wrap: nowrap;

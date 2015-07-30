@@ -5,27 +5,39 @@ $(document).ready(function(){
 
 var data={"info":[]},
 	field = $("input[name='name-value']"),
+	select = $("select[name='name-value-list']"),
 	id=0,
-	RegEx = /^[a-zA-Z0-9=]+$/,
+	RegEx = /^[a-zA-Z0-9=]+$/,	
 	isValid = function(element){
 		return RegEx.test(element.val());
 	},
 	addData = function(element){
 		var splitValue=element.val().split('=');
-		console.log(splitValue);
-		dataToJson(splitValue);
-		$("select[name='name-value-list']").append($('<option>', {
+		data.info.push({"id":id,"name":splitValue[0],"value":splitValue[1]});
+		select.append($('<option>', {
+			id: id,
 		    value: element.val(),
 		    text: element.val()
 		}));
-	},
-	dataToJson = function(element){
-		data.info.push({"id":id,"name":element[0],"value":element[1]});
 		id++;
+	},
+	deleteData = function(){
+		var selectedData = $("select[name='name-value-list'] option:selected");
+
+		selectedData.each(function(){
+			var selectId = $(this)[0].id;
+			data.info.forEach(function(e, index){
+				if(e.id == selectId){
+					data.info.splice(index,1);
+				}
+			});
+			$(this).remove();
+		});
+
 	};
 
 
-	$("#add-btn").on('click',function(e){
+	$("#add-btn").on("click",function(e){
 		if(isValid(field)){
 			addData(field);				
 			field.val('').focus();
@@ -34,4 +46,6 @@ var data={"info":[]},
 		$('#err').show();
 	});
 
+	$("#delete").on("click",deleteData);
+	$("#show-xml").on("click",function(){console.log(data);});
 });
