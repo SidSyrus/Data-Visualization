@@ -47,5 +47,5 @@ var data={"info":[]},
 	});
 
 	$("#delete").on("click",deleteData);
-	$("#show-xml").on("click",function(){console.log(data);});
+	$("#show-xml").on("click",function(){console.log(JSON.stringify(data.info));});
 });
