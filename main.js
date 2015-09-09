@@ -7,7 +7,7 @@ var data={"info":[]},
 	field = $("input[name='name-value']"),
 	select = $("select[name='name-value-list']"),
 	id=0,
-	RegEx = /^[a-zA-Z0-9=]+$/,	
+	RegEx = /^[a-z0-9]+=[a-z0-9]+$/i,	
 	isValid = function(element){
 		return RegEx.test(element.val());
 	},
@@ -36,9 +36,9 @@ var data={"info":[]},
 
 	};
 
-
 	$("#add-btn").on("click",function(e){
 		if(isValid(field)){
+			$('#err').hide();
 			addData(field);				
 			field.val('').focus();
 			return;
