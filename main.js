@@ -34,6 +34,34 @@ var data={"info":[]},
 			$(this).remove();
 		});
 
+	},
+	sortData = function(){
+		var id = this.id;
+
+		if(id === 'sort-name'){
+			data.info.sort(function(a,b){
+				var a = a.name.toLowerCase(),
+				    b = b.name.toLowerCase();
+				return (a < b) ? -1 : (a > b) ? 1 : 0;
+			});
+		}else if(id === 'sort-value'){
+			data.info.sort(function(a,b){
+				var a = a.value.toLowerCase(),
+				    b = b.value.toLowerCase();
+				return (a < b) ? -1 : (a > b) ? 1 : 0;
+			});
+		}
+		updateSelectBox();
+	},
+	updateSelectBox = function(){
+		select.empty();
+		data.info.forEach(function(e){
+			select.append($('<option>', {
+				id: e.id,
+		    	value: e.name+"="+e.value,
+		    	text: e.name+"="+e.value
+			}));
+		});
 	};
 
 	$("#add-btn").on("click",function(e){
@@ -47,5 +75,6 @@ var data={"info":[]},
 	});
 
 	$("#delete").on("click",deleteData);
+	$("#sort-name, #sort-value").on("click",sortData);
 	$("#show-xml").on("click",function(){console.log(JSON.stringify(data.info));});
 });
